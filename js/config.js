@@ -4,7 +4,7 @@
 window.OJT_CONFIG = {
   // true  = DEMO MODE. Everything runs in the browser using js/mock/* (fake data in localStorage).
   // false = REAL MODE. Every API.* call goes to your backend at API_BASE (see BACKEND_GUIDE.md).
-  USE_MOCK: true,
+  USE_MOCK: false,
 
   // Where the real backend lives when USE_MOCK is false.
   // Each route in js/api-contract.js is appended to this, e.g. POST {API_BASE}/auth/login
