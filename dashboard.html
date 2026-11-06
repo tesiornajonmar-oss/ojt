@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard | OJT-ERAMS</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-portal="student">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div id="announceBox" hidden></div>
+        <div id="faceBanner" hidden></div>
+        <div class="grid-2">
+          <div class="card">
+            <h2>Quick Status</h2>
+            <div id="statusPill" class="pill"></div>
+            <a id="statusBtn" class="btn btn-navy" href="attendance.html"></a>
+          </div>
+          <div class="card">
+            <h2>Total Hours Rendered</h2>
+            <div class="progress"><div id="bar" class="progress-fill">0%</div></div>
+            <p class="hours"><b id="doneHours">0</b> / <span id="targetHours">370</span> hours</p>
+            <p id="remainingHours" class="muted"></p>
+            <p id="pendingHours" class="small muted"></p>
+          </div>
+        </div>
+        <div class="card feed-card">
+          <h2>Recent Verification Status</h2>
+          <div id="feed" class="feed"></div>
+          <a href="dtr.html" class="underline" id="fullHistory">View my DTR</a>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="js/boot.js" data-page="js/dashboard.js"></script>
+</body>
+</html>

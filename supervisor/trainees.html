@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Trainees | OJT-ERAMS Supervisor</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-portal="supervisor">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head"><div><h2 class="page-title">My Trainees</h2><p class="muted" id="countNote"></p></div></div>
+        <div class="card">
+          <div class="toolbar">
+            <input class="input" id="search" type="search" placeholder="Search name or ID…" />
+            <select class="input" id="fStatus"><option value="">All statuses</option><option value="ACTIVE">Active</option><option value="COMPLETED">Completed</option><option value="NOT_STARTED">Not started</option><option value="ON_HOLD">On hold</option></select>
+            <select class="input" id="fSection"><option value="">All sections</option></select>
+          </div>
+          <div class="table-wrap"><table class="logs-table">
+            <thead><tr><th>Trainee</th><th>Progress</th><th>Today</th><th>Status</th><th>Flags</th><th></th></tr></thead>
+            <tbody id="tbody"></tbody></table></div>
+          <p class="muted center" id="emptyNote" hidden>No trainees match.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/trainees.js" data-with="widgets dtr review"></script>
+</body>
+</html>

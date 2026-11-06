@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Narrative Reports | OJT-ERAMS</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-portal="student">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div id="revBox"></div>
+        <div class="page-head">
+          <div><h2 class="page-title">Narrative Reports</h2><p class="muted">Write what you did and learned. Your adviser will approve it or ask for a revision.</p></div>
+          <button class="btn btn-navy" id="newBtn" type="button">+ New report</button>
+        </div>
+        <div class="card">
+          <div class="table-wrap"><table class="logs-table">
+            <thead><tr><th>Date</th><th>Title</th><th>Status</th><th>Adviser feedback</th><th></th></tr></thead>
+            <tbody id="tbody"></tbody></table></div>
+          <p class="muted center" id="emptyNote" hidden>No reports yet — write your first one.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="js/boot.js" data-page="js/narrative.js" data-with="widgets dtr"></script>
+</body>
+</html>

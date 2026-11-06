@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Attendance | OJT-ERAMS</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-portal="student">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head"><div><h2 class="page-title">Attendance</h2>
+          <p class="muted">Clock in and out with your live camera. Your location and face are checked automatically.</p></div></div>
+        <div id="faceBanner" hidden></div>
+        <div class="two-col">
+          <div class="card">
+            <h2>Today</h2>
+            <div id="statusPill" class="pill"></div>
+            <p class="small muted" id="gpsNote"></p>
+            <div id="clockInArea" hidden>
+              <button class="btn btn-navy" id="clockInBtn" type="button">📸 Clock In</button>
+              <p class="small muted" style="margin-top:10px">Your browser will ask for your <b>location</b> and <b>camera</b>. Without location, your entry is marked <b>Manual</b> and a person reviews it.</p>
+            </div>
+            <div id="clockOutArea" hidden>
+              <button class="btn btn-navy" id="clockOutBtn" type="button">⏹ Clock Out</button>
+              <p class="small muted" style="margin-top:10px">You'll take a live photo again. A 1-hour lunch break is deducted from shifts of 5 hours or more.</p>
+            </div>
+            <div id="doneArea" hidden></div>
+            <div id="resultBox" hidden></div>
+            <p class="error" id="actErr"></p>
+          </div>
+          <div class="card">
+            <h2>Your placement</h2>
+            <div id="placement"></div>
+            <h2 style="margin-top:22px">How your hours get verified</h2>
+            <ol class="small" style="padding-left:18px;margin:0">
+              <li>Clean records (in range, face matches, blink check done) are <b>verified automatically</b>.</li>
+              <li>Anything unusual goes to your <b>company supervisor</b> first.</li>
+              <li>Your <b>faculty adviser</b> steps in if it is escalated or waits too long.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="js/boot.js" data-page="js/attendance.js" data-with="camera"></script>
+</body>
+</html>

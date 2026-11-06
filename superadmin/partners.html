@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Partners & MOA | OJT-ERAMS Super Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/superadmin.css" />
+</head>
+<body data-portal="superadmin">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head">
+          <div>
+            <h2 class="page-title">Partners &amp; Contracts</h2>
+            <p class="muted">Contracts and partnerships (MOA, MOU, endorsement): type, reference, validity, slots and the signed document.</p>
+          </div>
+          <button class="btn btn-outline" id="exportBtn" type="button">⬇️ Export CSV</button>
+        </div>
+
+        <div class="card">
+          <div class="toolbar">
+            <input class="input" id="search" type="search" placeholder="Search company…" />
+            <select class="input" id="fMoa">
+              <option value="">All MOA statuses</option>
+              <option value="issues">Needs attention (pending, expired, expiring soon)</option>
+              <option value="APPROVED">Approved</option>
+              <option value="PENDING">Pending</option>
+              <option value="EXPIRED">Expired</option>
+              <option value="NOT_REQUIRED">Not required</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table class="logs-table">
+              <thead><tr><th>Company</th><th>Partner</th><th>Contract</th><th>Validity</th><th>Slots</th><th>Document</th><th></th></tr></thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+          <p class="muted center" id="emptyNote" hidden>No companies match.</p>
+        </div>
+
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/partners.js"></script>
+</body>
+</html>

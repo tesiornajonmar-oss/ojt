@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deployment | OJT-ERAMS</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-portal="faculty">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head"><div><h2 class="page-title">Deployment &amp; Assignments</h2><p class="muted" id="note"></p></div>
+          <button class="btn btn-outline" id="csvBtn" type="button">⬇ Export CSV</button></div>
+        <div id="chips" class="chip-row"></div>
+        <div class="tabs"><button class="tab active" data-tab="board" type="button">Deployment board</button><button class="tab" data-tab="who" type="button">Who handles who</button></div>
+        <div class="card"><div class="toolbar"><select class="input" id="fSection"></select><select class="input" id="fCompany"></select><input class="input" id="fSearch" placeholder="Search trainee, company or supervisor"></div><div id="panel"></div></div>
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/deployment.js" data-with="widgets"></script>
+</body>
+</html>

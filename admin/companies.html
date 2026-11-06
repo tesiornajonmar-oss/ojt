@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Companies & GPS | OJT-ERAMS Faculty</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-portal="faculty">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head">
+          <div><h2 class="page-title">Companies &amp; GPS</h2><p class="muted">Set each company's location and geofence. Trainees are marked <b>In-Range</b> when they clock in inside the radius.</p></div>
+          <button class="btn btn-navy" id="addBtn" type="button">+ Add Company</button>
+        </div>
+        <div class="card">
+          <div class="toolbar"><input class="input" id="search" type="search" placeholder="Search company…" /></div>
+          <div id="list"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/companies.js"></script>
+</body>
+</html>

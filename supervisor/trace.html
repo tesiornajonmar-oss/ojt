@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trace Trainees | OJT-ERAMS Supervisor</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-portal="supervisor">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head"><div><h2 class="page-title">Trace Trainees</h2><p class="muted" id="note">Where your trainees are right now and where they clocked in and out.</p></div>
+          <div class="toolbar" style="margin:0"><select class="input" id="fState"><option value="">Everyone</option><option value="ON_DUTY">On duty</option><option value="NOT_IN">Not clocked in</option><option value="DONE">Done today</option></select></div></div>
+        <div id="grid" class="trace-grid"></div>
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/trace.js" data-with="widgets"></script>
+</body>
+</html>

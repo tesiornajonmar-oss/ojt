@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OJT Details | OJT-ERAMS</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-portal="student">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head"><div><h2 class="page-title">OJT Details</h2><p class="muted">Your placement, schedule, the people who supervise you, and your Face ID.</p></div></div>
+        <div class="two-col">
+          <div class="card"><h2>Placement</h2><div id="placement"></div></div>
+          <div class="card">
+            <h2>Academic adviser</h2><div id="advisers"></div>
+            <h2 style="margin-top:22px">Company supervisor(s)</h2><div id="supervisors"></div>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="card" id="face"><h2>🙂 Face ID</h2><div id="faceBox"></div></div>
+          <div class="card" id="password">
+            <h2>🔒 Change my password</h2>
+            <div class="form-grid">
+              <div class="field full"><label>Current password</label><input id="pwOld" type="password" autocomplete="current-password"></div>
+              <div class="field"><label>New password</label><input id="pwNew" type="password" autocomplete="new-password"></div>
+              <div class="field"><label>Confirm new password</label><input id="pwNew2" type="password" autocomplete="new-password"></div>
+            </div>
+            <p class="error" id="pwErr"></p>
+            <button class="btn btn-outline" id="pwBtn" type="button">Change password</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="js/boot.js" data-page="js/ojt-details.js" data-with="camera widgets review"></script>
+</body>
+</html>

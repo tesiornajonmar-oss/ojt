@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faculty Advisers | OJT-ERAMS Super Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/superadmin.css" />
+</head>
+<body data-portal="superadmin">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head">
+          <div>
+            <h2 class="page-title">Faculty Advisers</h2>
+            <p class="muted" id="countNote"></p>
+          </div>
+          <button class="btn btn-navy" id="addBtn" type="button">+ Add Adviser</button>
+        </div>
+
+        <div class="card">
+          <div class="table-wrap">
+            <table class="logs-table">
+              <thead><tr><th>Adviser</th><th>Department</th><th>Trainees</th><th>Waiting for review</th><th>Avg. progress</th><th></th></tr></thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+          <p class="muted center" id="emptyNote" hidden>No advisers yet — add the first one.</p>
+        </div>
+
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/advisers.js"></script>
+</body>
+</html>

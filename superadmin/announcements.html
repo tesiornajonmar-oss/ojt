@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Announcements | OJT-ERAMS Super Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/superadmin.css" />
+</head>
+<body data-portal="superadmin">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head">
+          <div>
+            <h2 class="page-title">Announcements</h2>
+            <p class="muted">Messages appear at the top of the trainees' dashboard until they dismiss them or the expiry date passes.</p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <h3 class="left">✍️ New announcement</h3>
+            <div class="form-grid" style="margin-top:12px">
+              <div class="field full"><label>Title *</label><input id="aTitle" maxlength="80" placeholder="e.g., Submit your midterm narrative by Friday"></div>
+              <div class="field full"><label>Message *</label><textarea id="aMessage" rows="4" maxlength="400" placeholder="Write a short, clear message."></textarea></div>
+              <div class="field"><label>Send to</label><select id="aAudience"></select></div>
+              <div class="field"><label>Priority</label>
+                <select id="aPriority"><option value="info">Info (amber)</option><option value="important">Important (red)</option></select></div>
+              <div class="field"><label>Hide after (optional)</label><input id="aExpires" type="date"></div>
+            </div>
+            <p class="error" id="aErr"></p>
+            <button class="btn btn-navy" id="postBtn" type="button">📢 Post announcement</button>
+          </div>
+
+          <div class="card">
+            <h3 class="left">📋 Posted</h3>
+            <div id="annList" style="margin-top:12px"></div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/announcements.js"></script>
+</body>
+</html>

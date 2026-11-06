@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>System | OJT-ERAMS Super Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/superadmin.css" />
+</head>
+<body data-portal="superadmin">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head">
+          <div>
+            <h2 class="page-title">System</h2>
+            <p class="muted">Program defaults, attendance rules, holidays and the audit trail.</p>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-sec="policies" type="button">Policies</button>
+          <button class="tab" data-sec="audit" type="button">Audit Log</button>
+        </div>
+
+        <!-- POLICIES -->
+        <div class="sec" id="sec-policies">
+          <div class="two-col">
+            <div class="card">
+              <h3 class="left">🎓 Program requirements</h3>
+              <div class="form-grid" style="margin-top:12px">
+                <div class="field"><label>Required OJT hours</label><input id="pHours" type="number" min="1" max="2000"></div>
+                <div class="field"><label>Break (minutes)</label><input id="pBreak" type="number" min="0" max="180"></div>
+                <div class="field"><label>Default time in</label><input id="pStart" type="time"></div>
+                <div class="field"><label>Default time out</label><input id="pEnd" type="time"></div>
+                <div class="field full"><label>Default work days</label><div id="pDays" style="display:flex;gap:6px;flex-wrap:wrap"></div></div>
+              </div>
+              <p class="small muted" id="applyNote" style="margin:10px 0"></p>
+              <p class="error" id="pErr"></p>
+              <button class="btn btn-navy" id="applyProgramBtn" type="button">Save defaults</button>
+            </div>
+
+            <div class="card">
+              <h3 class="left">🛰️ GPS geofence</h3>
+              <div class="field" style="margin-top:12px"><label>Geofence radius (meters)</label><input id="rRadius" type="number" min="50" max="5000" value="300"></div>
+              <p class="small muted" id="radiusNote" style="margin:10px 0"></p>
+              <p class="error" id="rErr"></p>
+              <button class="btn btn-navy" id="applyRadiusBtn" type="button">Apply to all companies</button>
+
+              <h3 class="left" style="margin-top:28px">🔒 My password</h3>
+              <div class="form-grid" style="margin-top:12px">
+                <div class="field full"><label>Current password</label><input id="pwOld" type="password" autocomplete="current-password"></div>
+                <div class="field"><label>New password</label><input id="pwNew" type="password" autocomplete="new-password"></div>
+                <div class="field"><label>Confirm new password</label><input id="pwNew2" type="password" autocomplete="new-password"></div>
+              </div>
+              <p class="error" id="pwErr"></p>
+              <button class="btn btn-outline" id="pwBtn" type="button">Change password</button>
+            </div>
+          </div>
+          <div class="card" style="margin-top:20px">
+            <h3 class="left">✅ Attendance approval rules</h3>
+            <p class="small muted" style="margin:8px 0 12px">This is how the system copes with hundreds or thousands of trainees: records that pass every check are <b>auto-approved</b>; only unusual ones reach a person (company supervisor first, then the adviser).</p>
+            <div class="form-grid">
+              <div class="field"><label><input id="rAuto" type="checkbox"> Auto-approve clean records</label></div>
+              <div class="field"><label><input id="rFace" type="checkbox"> Require Face ID for auto-approval</label></div>
+              <div class="field"><label>Grace period for late / undertime (minutes)</label><input id="rGrace" type="number" min="0" max="60"></div>
+              <div class="field"><label>Default break (minutes)</label><input id="rBreak" type="number" min="0" max="180"></div>
+              <div class="field"><label>Alert after N failed face matches in a row (0 = off)</label><input id="rRep" type="number" min="0" max="10"></div>
+              <div class="field"><label>Face match strictness (0.30 strict – 0.80 loose)</label><input id="rThr" type="number" min="0.3" max="0.8" step="0.01"></div>
+              <div class="field"><label>Escalate to adviser after (days)</label><input id="rEsc" type="number" min="1" max="30"></div>
+              <div class="field"><label>Flag shifts shorter than (hours)</label><input id="rMin" type="number" min="0" max="8" step="0.25"></div>
+              <div class="field"><label>Flag shifts longer than (hours)</label><input id="rMax" type="number" min="8" max="24" step="0.5"></div>
+            </div>
+            <p class="error" id="rulesErr"></p>
+            <button class="btn btn-navy" id="saveRulesBtn" type="button">Save approval rules</button>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px"><h3 class="left">🎌 Holidays &amp; no-work days</h3>
+          <p class="small muted" style="margin:8px 0 12px">These days are not counted as absences in the DTR.</p>
+          <div class="inline-row"><input class="input" id="hDate" type="date"><input class="input" id="hName" placeholder="Holiday name" style="flex:1"><button class="btn btn-outline" id="hAdd" type="button">Add</button></div>
+          <div id="hList" style="margin-top:10px"></div><p class="error" id="hErr"></p><button class="btn btn-navy" id="hSave" type="button">Save holidays</button></div>
+
+        <!-- AUDIT -->
+        <div class="sec" id="sec-audit" hidden>
+          <div class="card">
+            <div class="toolbar">
+              <input class="input" id="aSearch" type="search" placeholder="Search actions, people, details…" />
+              <select class="input" id="aActor"></select>
+              <button class="btn btn-outline btn-sm" id="auditExport" type="button" style="margin-left:0">⬇️ Export CSV</button>
+            </div>
+            <div class="table-wrap">
+              <table class="logs-table">
+                <thead><tr><th>When</th><th>Who</th><th>Action</th><th>Target</th><th>Details</th></tr></thead>
+                <tbody id="aBody"></tbody>
+              </table>
+            </div>
+            <p class="muted center" id="aEmpty" hidden>No matching activity yet.</p>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/system.js"></script>
+</body>
+</html>

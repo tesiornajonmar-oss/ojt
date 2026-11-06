@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Users & Accounts | OJT-ERAMS Super Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/superadmin.css" />
+</head>
+<body data-portal="superadmin">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head"><div><h2 class="page-title">Users &amp; Accounts</h2><p class="muted" id="note"></p></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-outline" id="impBtn" type="button">📥 Import students (CSV)</button><button class="btn btn-outline" id="csvBtn" type="button">⬇ Export list</button><button class="btn btn-navy" id="addBtn" type="button">+ Add administrator</button></div></div>
+        <div class="card"><div class="toolbar"><select class="input" id="fRole"><option value="">All roles</option><option value="EDUC_INTERN">Students</option><option value="ADVISER">Faculty advisers</option><option value="SUPERVISOR">Company supervisors</option><option value="SUPER_ADMIN">Administrators</option></select>
+          <select class="input" id="fActive"><option value="">Active &amp; disabled</option><option value="1">Active only</option><option value="0">Disabled only</option></select><input class="input" id="fSearch" placeholder="Search name, username, section or company"></div>
+          <div id="panel"></div></div>
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/users.js" data-with="widgets review"></script>
+</body>
+</html>

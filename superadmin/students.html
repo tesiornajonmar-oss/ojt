@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All Trainees | OJT-ERAMS Super Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/superadmin.css" />
+</head>
+<body data-portal="superadmin">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head">
+          <div>
+            <h2 class="page-title">All Trainees</h2>
+            <p class="muted" id="countNote"></p>
+          </div>
+          <button class="btn btn-outline" id="exportBtn" type="button">⬇️ Export CSV</button>
+        </div>
+
+        <div class="card">
+          <div class="toolbar">
+            <input class="input" id="search" type="search" placeholder="Search name or ID…" />
+            <select class="input" id="fAdviser"></select>
+            <select class="input" id="fSection"><option value="">All sections</option></select>
+            <select class="input" id="fStatus">
+              <option value="">All statuses</option>
+              <option value="ACTIVE">Active</option>
+              <option value="COMPLETED">Completed</option>
+              <option value="NOT_STARTED">Not started</option>
+              <option value="ON_HOLD">On hold</option>
+            </select>
+            <label class="small" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="fAttn"> Needs attention only</label>
+          </div>
+
+          <div class="bulk-bar">
+            <select class="input" id="bulkTo"></select>
+            <button class="btn btn-navy btn-sm" id="bulkBtn" type="button" style="margin-left:0">Reassign</button>
+            <span class="small muted" id="selNote"></span>
+          </div>
+
+          <div class="table-wrap">
+            <table class="logs-table">
+              <thead><tr><th><input type="checkbox" id="selAll" aria-label="Select all"></th><th>Trainee</th><th>Adviser</th><th>Company</th><th>Progress</th><th>Status</th><th>Flags</th><th></th></tr></thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+          <p class="muted center" id="emptyNote" hidden>No trainees match your filters.</p>
+        </div>
+
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/students.js" data-with="widgets dtr review"></script>
+</body>
+</html>

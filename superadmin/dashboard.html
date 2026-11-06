@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Overview | OJT-ERAMS Super Admin</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="css/superadmin.css" />
+</head>
+<body data-portal="superadmin">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head">
+          <div>
+            <h2 class="page-title">Program Overview</h2>
+            <p class="muted" id="welcome"></p>
+          </div>
+          <button class="btn btn-outline" id="exportBtn" type="button">⬇️ Export System Report (CSV)</button>
+        </div>
+
+        <div class="stat-grid">
+          <a class="card stat-card" href="students.html">
+            <span class="stat-ico">🎓</span>
+            <div><div class="stat-num" id="statStudents">0</div><div class="stat-label">Trainees</div><div class="stat-sub" id="statStudentsSub"></div></div>
+          </a>
+          <a class="card stat-card" href="advisers.html">
+            <span class="stat-ico">👩‍🏫</span>
+            <div><div class="stat-num" id="statAdvisers">0</div><div class="stat-label">Faculty advisers</div><div class="stat-sub" id="statAdvisersSub"></div></div>
+          </a>
+          <a class="card stat-card" href="partners.html">
+            <span class="stat-ico">🤝</span>
+            <div><div class="stat-num" id="statPartners">0</div><div class="stat-label">Partner HTEs</div><div class="stat-sub" id="statPartnersSub"></div></div>
+          </a>
+          <div class="card stat-card">
+            <span class="stat-ico">⏱️</span>
+            <div><div class="stat-num" id="statHours">0</div><div class="stat-label">Verified hours</div><div class="stat-sub" id="statHoursSub"></div></div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-head-row"><h3 class="left">⚠️ Needs Attention</h3></div>
+            <div id="attnList"></div>
+          </div>
+          <div class="card">
+            <div class="card-head-row"><h3 class="left">📊 Program Status</h3></div>
+            <div class="seg-bar" id="segBar"></div>
+            <div class="legend" id="segLegend"></div>
+            <div style="margin-top:22px">
+              <div class="prog-top"><b>Verified vs. required hours</b><span class="small muted" id="hrsText"></span></div>
+              <div class="tracker-bar"><div class="tracker-fill-approved" id="hrsFill"></div><div class="tracker-fill-pending" id="hrsPend"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head-row"><h3 class="left">👩‍🏫 Adviser Workload</h3><a href="advisers.html" class="small underline">Manage advisers</a></div>
+          <div class="table-wrap">
+            <table class="logs-table">
+              <thead><tr><th>Adviser</th><th>Trainees</th><th>Avg. progress</th><th>Waiting for review</th><th>Oldest waiting</th><th>Flags</th></tr></thead>
+              <tbody id="wlBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head-row"><h3 class="left">🧾 Recent System Activity</h3><a href="system.html#audit" class="small underline">Full audit log</a></div>
+          <div id="actList"></div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/dashboard.js"></script>
+</body>
+</html>

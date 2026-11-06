@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Faculty sign in | OJT-ERAMS</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/login.css" />
+</head>
+<body class="lg-body" data-portal="faculty">
+  <div class="lg-wrap">
+    <aside class="lg-brand">
+      <div class="lg-brand-inner">
+        <img src="../images/cmu-logo.png" alt="City of Malabon University seal" class="lg-logo" onerror="this.style.display='none'" />
+        <h1>City of Malabon<br />University</h1>
+        <div class="lg-rule"></div>
+        <p class="lg-system">OJT-ERAMS</p>
+        <p class="lg-mean">On-the-Job Training<br />Electronic Records &amp; Attendance Management System</p>
+        <span class="lg-tag">Faculty Portal</span>
+      </div>
+    </aside>
+    <main class="lg-main">
+      <div class="lg-card">
+        <h2>Faculty sign in</h2>
+        <p class="lg-sub">Enter your account details to continue.</p>
+        <form id="loginForm" novalidate>
+          <div class="lg-field"><label for="username">Username</label>
+            <div class="lg-input"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><input type="text" id="username" autocomplete="username" autofocus /></div></div>
+          <div class="lg-field"><label for="password">Password</label>
+            <div class="lg-input"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><input type="password" id="password" autocomplete="current-password" />
+              <button type="button" id="togglePw" class="lg-eye" aria-label="Show or hide password"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+          <div class="lg-forgot"><a href="#" id="forgotLink">Forgot password?</a></div>
+          <p id="loginError" class="lg-error" role="alert"></p>
+          <button type="submit" class="lg-btn" id="signInBtn">Sign in</button>
+        </form>
+        <div class="lg-links"><a href="../login.html">Student portal &rarr;</a><a href="../supervisor/login.html">Company supervisor portal &rarr;</a><a href="../superadmin/login.html">Super Admin portal &rarr;</a></div>
+        <!-- DEMO ONLY: delete this button when you go live -->
+        <button type="button" class="lg-demo" id="demoFill" data-demo data-user="jdelacruz" data-pw="adviser123">Demo account: <b>jdelacruz</b> / <b>adviser123</b> &nbsp;(click to fill)</button>
+      </div>
+    </main>
+  </div>
+  <script src="../js/boot.js" data-page="../js/login-page.js"></script>
+</body>
+</html>

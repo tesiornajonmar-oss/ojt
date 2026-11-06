@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard | OJT-ERAMS Faculty</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-portal="faculty">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head"><div><h2 class="page-title">Dashboard</h2><p class="muted" id="welcome"></p></div></div>
+        <div class="stat-grid">
+          <a class="card stat-card" href="students.html"><span class="stat-ico">🎓</span><div><div class="stat-num" id="sTrainees">0</div><div class="stat-label">Trainees</div><div class="stat-sub" id="sTraineesSub"></div></div></a>
+          <a class="card stat-card" href="approvals.html"><span class="stat-ico">✅</span><div><div class="stat-num" id="sNeeds">0</div><div class="stat-label">Need your review</div><div class="stat-sub" id="sNeedsSub"></div></div></a>
+          <a class="card stat-card" href="approvals.html"><span class="stat-ico">⏳</span><div><div class="stat-num" id="sWait">0</div><div class="stat-label">With company supervisors</div><div class="stat-sub">Escalated to you after a few days</div></div></a>
+          <div class="card stat-card"><span class="stat-ico">⚠️</span><div><div class="stat-num" id="sFlags">0</div><div class="stat-label">Need attention</div><div class="stat-sub" id="sAvgSub"></div></div></div>
+        </div>
+        <div class="two-col">
+          <div class="card"><div class="card-head-row"><h3 class="left">🔎 Highest-risk items first</h3><a class="small underline" href="approvals.html">Open approvals</a></div><div id="needList"></div></div>
+          <div class="card"><div class="card-head-row"><h3 class="left">⚠️ Needs attention</h3><a class="small underline" href="students.html">All trainees</a></div><div id="attnList"></div></div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/dashboard.js" data-with="widgets"></script>
+</body>
+</html>

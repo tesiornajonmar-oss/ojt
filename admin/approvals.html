@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Approvals | OJT-ERAMS Faculty</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-portal="faculty">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head">
+          <div><h2 class="page-title">Approvals</h2><p class="muted" id="countNote"></p></div>
+          <button class="btn btn-navy" id="bulkBtn" type="button">✅ Approve selected</button>
+        </div>
+        <div class="spot-note" id="ruleNote">Clean records are approved automatically and company supervisors review the rest first. You only see items that were <b>escalated</b>, have <b>no company supervisor</b>, or have waited too long.</div>
+        <div class="tabs">
+          <button class="tab active" data-tab="needs" type="button">Needs you <span id="cNeeds"></span></button>
+          <button class="tab" data-tab="waiting" type="button">With company supervisor <span id="cWait"></span></button>
+          <button class="tab" data-tab="reports" type="button">Narrative reports <span id="cReports"></span></button>
+          <button class="tab" data-tab="acc" type="button">Accomplishments</button>
+          <button class="tab" data-tab="sched" type="button">Schedule requests</button>
+        </div>
+        <div class="card" id="panel"></div>
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/approvals.js" data-with="widgets review"></script>
+</body>
+</html>

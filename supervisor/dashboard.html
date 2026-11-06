@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard | OJT-ERAMS Supervisor</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-portal="supervisor">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head"><div><h2 class="page-title">Dashboard</h2><p class="muted" id="welcome"></p></div></div>
+        <div class="stat-grid">
+          <a class="card stat-card" href="trainees.html"><span class="stat-ico">🎓</span><div><div class="stat-num" id="sTrainees">0</div><div class="stat-label">Trainees here</div><div class="stat-sub" id="sAvgSub"></div></div></a>
+          <a class="card stat-card" href="approvals.html"><span class="stat-ico">✅</span><div><div class="stat-num" id="sPending">0</div><div class="stat-label">Waiting for your review</div><div class="stat-sub">Only unusual records need you</div></div></a>
+          <a class="card stat-card" href="approvals.html"><span class="stat-ico">⏱️</span><div><div class="stat-num" id="sSpot">0</div><div class="stat-label">Overtime to approve</div><div class="stat-sub">Overtime is not counted until you approve it</div></div></a>
+          <div class="card stat-card"><span class="stat-ico">🟢</span><div><div class="stat-num" id="sDuty">0</div><div class="stat-label">On duty now</div><div class="stat-sub" id="dutyNames"></div></div></div>
+        </div>
+        <div class="quick-row">
+          <a class="btn btn-navy" href="approvals.html">✅ Review attendance</a>
+          <a class="btn btn-outline" href="messages.html">💬 Message faculty</a>
+          <a class="btn btn-outline" href="evaluations.html">⭐ Evaluations</a>
+          <a class="btn btn-outline" href="trainees.html">🎓 All trainees</a>
+        </div>
+        <div class="two-col">
+          <div class="card"><div class="card-head-row"><h3 class="left">🗓️ Today's attendance</h3><span class="small muted" id="boardNote"></span></div><div id="boardList"></div></div>
+          <div class="card"><div class="card-head-row"><h3 class="left">📊 Hours — last 7 days</h3><span class="small muted" id="weekTotal"></span></div><div id="weekChart" class="bar-chart"></div>
+            <div id="evalDue" style="margin-top:18px"></div></div>
+        </div>
+        <div class="card" id="companyCard"></div>
+        <div class="two-col">
+          <div class="card"><div class="card-head-row"><h3 class="left">🔎 Review these first</h3><a class="small underline" href="approvals.html">Open review queue</a></div><div id="oldestList"></div></div>
+          <div class="card"><div class="card-head-row"><h3 class="left">⚠️ Needs attention</h3><a class="small underline" href="trainees.html">All trainees</a></div><div id="attnList"></div></div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Time Record | OJT-ERAMS</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-portal="faculty">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+        <div class="page-head"><div><h2 class="page-title" id="pgTitle">Daily Time Record</h2><p class="muted" id="pgNote">Generated automatically from attendance. Late, undertime and overtime are computed from the schedule.</p></div></div>
+        <div class="card"><div class="toolbar" id="bar">
+          <select class="input" id="fPreset"></select>
+          <input class="input" type="date" id="fFrom"><input class="input" type="date" id="fTo">
+          <select class="input" id="fSection" hidden></select><input class="input" id="fSearch" placeholder="Search trainee or company" hidden>
+        </div><div id="panel"></div></div>
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="../js/dtr-page.js" data-with="widgets dtr"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trainees | OJT-ERAMS Faculty</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-portal="faculty">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head">
+          <div><h2 class="page-title">Trainees</h2><p class="muted" id="countNote"></p></div>
+          <div class="inline-row">
+            <button class="btn btn-outline" id="exportBtn" type="button">⬇️ Export CSV</button>
+            <button class="btn btn-outline" id="faceRemind" type="button" title="Notify trainees who have not set up Face ID">🙂 Remind Face ID</button> <button class="btn btn-outline" id="impBtn" type="button">📥 Import CSV</button> <button class="btn btn-navy" id="addBtn" type="button">+ Add Student</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="toolbar">
+            <input class="input" id="search" type="search" placeholder="Search name or ID…" />
+            <select class="input" id="fStatus"><option value="">All statuses</option><option value="ACTIVE">Active</option><option value="COMPLETED">Completed</option><option value="NOT_STARTED">Not started</option><option value="ON_HOLD">On hold</option></select>
+            <select class="input" id="fCompany"></select>
+            <select class="input" id="fSection"><option value="">All sections</option></select>
+            <select class="input" id="fSort"><option value="name">Sort: Last name</option><option value="progress">Sort: Most progress</option><option value="idle">Sort: Least recent activity</option><option value="attention">Sort: Needs attention</option></select>
+          </div>
+          <div class="table-wrap"><table class="logs-table">
+            <thead><tr><th>Trainee</th><th>Company</th><th>Progress</th><th>Status</th><th>MOA</th><th>Flags</th><th></th></tr></thead>
+            <tbody id="tbody"></tbody></table></div>
+          <p class="muted center" id="emptyNote" hidden>No trainees match your filters.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/students.js" data-with="widgets dtr review"></script>
+</body>
+</html>

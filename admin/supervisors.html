@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Company Supervisors | OJT-ERAMS Faculty</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body data-portal="faculty">
+  <div class="layout">
+    <aside id="sidebar"></aside>
+    <div class="main">
+      <header id="topbar"></header>
+      <section class="content">
+
+        <div class="page-head">
+          <div><h2 class="page-title">Company Supervisors</h2><p class="muted">Accounts for the people at each company who verify trainee attendance. They only see trainees placed at their own company.</p></div>
+          <button class="btn btn-navy" id="addBtn" type="button">+ Add Supervisor</button>
+        </div>
+        <div class="card">
+          <div class="toolbar"><input class="input" id="search" type="search" placeholder="Search name or company…" /><select class="input" id="fCompany"></select></div>
+          <div class="table-wrap"><table class="logs-table">
+            <thead><tr><th>Supervisor</th><th>Company</th><th>Trainees</th><th>Waiting for review</th><th></th></tr></thead>
+            <tbody id="tbody"></tbody></table></div>
+          <p class="muted center" id="emptyNote" hidden>No supervisors yet. Add one so the company can verify its trainees.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="../js/boot.js" data-page="js/supervisors.js"></script>
+</body>
+</html>
