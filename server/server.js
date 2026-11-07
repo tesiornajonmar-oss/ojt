@@ -1,3 +1,4 @@
+// OJT-ERAMS server — build 2026-11-07-c (adds POST /api/admin/admins)
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
@@ -106,6 +107,7 @@ app.get('/api/auth/me', auth(), async (req, res) => {
     const u = (await db.query(
       `SELECT u.id, u.role::text AS role, u.username, u.first_name, u.last_name,
               u.title, u.email, u.phone, u.theme,
+              (to_jsonb(u) ->> 'must_change') = 'true' AS must_change,
               sp.student_no, sp.program, sp.year_section,
               sup.position, c.name AS company_name
          FROM users u
@@ -123,7 +125,7 @@ app.get('/api/auth/me', auth(), async (req, res) => {
       student_id: u.student_no, program: u.program, section: u.year_section,
       position: u.position, company_name: u.company_name,
       department: u.title,
-      must_change: false,
+      must_change: !!u.must_change,
       badges: { approvals: 0, messages: 0 }
     });
   } catch (e) {
@@ -157,6 +159,8 @@ app.post('/api/auth/change-password', auth(), async (req, res) => {
       return res.status(400).json({ error: 'Your current password is incorrect.' });
     await db.query('UPDATE users SET password_hash = $1 WHERE id = $2',
       [await bcrypt.hash(new_password, 10), req.user.id]);
+    try { await db.query('UPDATE users SET must_change = false WHERE id = $1', [req.user.id]); }
+    catch (e) { /* must_change column not created yet */ }
     res.json({ ok: true });
   } catch (e) {
     console.error(e);
@@ -856,6 +860,38 @@ app.delete('/api/student/reports/:id', auth(['EDUC_INTERN']), async (req, res) =
     if (!r.rowCount) throw httpErr(409, 'Only drafts can be deleted.');
     res.json({ ok: true });
   } catch (e) { sendErr(res, e, 'Could not delete the report'); }
+});
+
+/* ------------------------------------------------------------------ */
+/*  Super Admin: accounts                                              */
+/* ------------------------------------------------------------------ */
+app.post('/api/admin/admins', auth(['SUPER_ADMIN']), async (req, res) => {
+  try {
+    const b = req.body || {};
+    const first = String(b.first_name || '').trim(), last = String(b.last_name || '').trim();
+    const email = String(b.email || '').trim(), username = String(b.username || '').trim().toLowerCase();
+    const password = String(b.password || ''), dept = String(b.department || b.title || '').trim();
+    if (!first || !last) throw bad('Please enter the first and last name.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw bad('Please enter a valid email address.');
+    if (!/^[a-z0-9._-]{3,40}$/.test(username)) throw bad('Username must be 3–40 characters: letters, numbers, dot, dash or underscore.');
+    if (password.length < 6) throw bad('The temporary password must be at least 6 characters.');
+    if ((await db.query('SELECT 1 FROM users WHERE lower(username) = $1', [username])).rowCount)
+      throw httpErr(409, 'That username is already taken.');
+
+    await db.query(
+      `INSERT INTO users (username, password_hash, role, first_name, last_name, title, email, active, must_change)
+       VALUES ($1, $2, 'SUPER_ADMIN', $3, $4, $5, $6, true, true)`,
+      [username, await bcrypt.hash(password, 10), first, last, dept || null, email]);
+    try {
+      await db.query(`INSERT INTO audit_log (user_id, action, subject, detail, ip) VALUES ($1, 'ADMIN_CREATED', $2, $3, $4)`,
+        [req.user.id, username, 'New administrator account', req.ip || null]);
+    } catch (e) { /* audit is best-effort */ }
+    res.json({ ok: true, username });
+  } catch (e) {
+    if (e.code === '23505') return res.status(409).json({ error: 'That username is already taken.' });
+    if (e.code === '42703') return res.status(500).json({ error: 'The users table needs the must_change column. Run the SQL from the chat first.' });
+    sendErr(res, e, 'Could not create the account');
+  }
 });
 
 /* ------------------------------------------------------------------ */
